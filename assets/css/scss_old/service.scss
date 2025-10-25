@@ -1,0 +1,59 @@
+@import "vars";
+@import "mixins";
+#MainScreen {
+  > div {
+    padding:         $size-medium;
+    border-radius:   $radius;
+    background:      $black-light center no-repeat;
+    background-size: cover;
+    position:        relative;
+    @include respond-to(mdpi) {
+      padding: $size-mdpi-medium;
+    }
+    @include respond-to(tablet) {
+      padding: $size-tab-medium;
+    }
+    > .img-ms {
+      position: absolute;
+      bottom:   0;
+      right:    20%;
+    }
+    > .wrp {
+      position: relative;
+      z-index:  2;
+    }
+  }
+  p {
+    color: $black-light;
+    &.big {
+      color: $white;
+    }
+  }
+  h1 {
+    color: $primary;
+  }
+  .item {
+    display: block;
+    > svg {
+      height:        30px;
+      fill:          $black-light;
+      margin-bottom: 4px;
+    }
+  }
+  .form {
+    position:   relative;
+    padding:    $size-small;
+    background: $white;
+    text-align: center;
+    background: $white top repeat-x;
+    @include respond-to(mdpi) {
+      padding: $size-mdpi-small;
+    }
+    @include respond-to(tablet) {
+      padding: $size-tab-small;
+    }
+  }
+}
+#Masters {
+  background: $white top center no-repeat;
+}

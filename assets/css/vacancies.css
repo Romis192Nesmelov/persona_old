@@ -1,0 +1,559 @@
+/* Vacancies list page */
+.vacancies__title {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0 auto;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.vacancies__text {
+    margin-top: 4px;
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.vacancies__tel {
+    font-weight: 500;
+    margin-left: auto;
+    font-size: 16px;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}
+
+.vacancies__features-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.vacancies__feature {
+    padding-top: 170px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23%;
+}
+
+.vacancies__feature::before {
+    content: "";
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 90% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.vacancies__feature--growth::before {
+    background-image: url(../icons/icon-growth.svg);
+}
+
+.vacancies__feature--locations::before {
+    background-image: url(../icons/icon-locations.svg);
+}
+
+.vacancies__feature--education::before {
+    background-image: url(../icons/icon-education.svg);
+}
+
+.vacancies__feature--development::before {
+    background-image: url(../icons/icon-development.svg);
+}
+
+.vacancies__feature-title {
+    font-size: 24px;
+    line-height: 26px;
+    text-align: center;
+}
+
+.vacancies__feature-text {
+    margin-top: 16px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.vacancies__divider {
+    position: relative;
+}
+
+.vacancies__divider::before {
+    content: "";
+    width: 160px;
+    height: 4px;
+    position: absolute;
+    top: 0;
+    background-color: #000;
+    right: 50%;
+    transform: translateX(50%);
+}
+
+.vacancies__subtitle {
+    font-size: 24px;
+    max-width: 600px;
+    text-align: center;
+    margin-left: auto;
+    font-weight: 500;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.vacancies__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 40px;
+}
+
+.vacancies__item {
+    position: relative;
+    width: 316px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.vacancies__item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    height: 315px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.7) 100%);
+}
+
+.vacancies__item img {
+    display: block;
+    height: 315px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.vacancies__item-container {
+    background: #000;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.vacancies__item ol,
+.vacancies__item ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.vacancies__item-title {
+    font-size: 24px;
+    line-height: 26px;
+}
+
+.vacancies__item-offer {
+    margin-bottom: 12px;
+}
+
+.vacancies__content {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.vacancies__item-link {
+    transition: all 0.2s ease-in;
+    text-transform: none;
+    color: #000;
+    background-color: #fff;
+    border: 1px solid #fff;
+    display: inline-flex;
+    padding: 8px 16px;
+    border-radius: 8px;
+    margin-top: auto;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vacancies__item-link:hover {
+    color: #fff;
+    background-color: #000;
+}
+
+.vacancies__articles-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.vacancies__article {
+    width: 50%;
+    display: flex;
+    height: 240px;
+    overflow: hidden;
+}
+
+.vacancies__article:nth-child(4n+3),
+.vacancies__article:nth-child(4n+4) {
+    flex-direction: row-reverse;
+}
+
+.vacancies__article-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vacancies__article-img {
+    position: relative;
+    z-index: 1;
+    width: 50%;
+}
+
+.vacancies__article-img::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.vacancies__article-title {
+    text-transform: none;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100%;
+    font-size: 18px;
+    line-height: 20px;
+    background-color: #FFCEF1;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.6s ease;
+    overflow: hidden;
+}
+
+.vacancies__article-title:hover {
+    transform: scale(1.05);
+}
+
+/* Vacancy page */
+.vacancy {
+    width: 100%;
+    height: 400px;
+    padding-bottom: 30px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.vacancy::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.7) 100%);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.vacancy__title {
+    font-size: 40px;
+    color: #fff;
+    margin-top: auto;
+    text-align: center;
+    text-transform: none;
+    position: relative;
+    z-index: 1;
+}
+
+.vacancy__features-list {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.vacancy__feature {
+    padding-top: 170px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 100%;
+    text-align: center;
+}
+
+.vacancy__feature::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: calc(100% - 2px);
+    background-color: #000;
+}
+
+.vacancy__feature:last-child::after {
+    content: none;
+}
+
+.vacancy__feature-content {
+    max-width: 340px;
+    font-size: 16px;
+    line-height: 18px;
+}
+
+.vacancy__feature::before {
+    content: "";
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-size: 90% auto;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.vacancy__feature ul,
+.vacancy__feature ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vacancy__feature-title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+}
+
+.vacancy__feature--offer::before {
+    background-image: url(../icons/icon-offer.svg);
+}
+
+.vacancy__feature--requirements::before {
+    background-image: url(../icons/icon-requirements.svg);
+}
+
+.vacancy__feature--responsibilities::before {
+    background-image: url(../icons/icon-responsibilities.svg);
+}
+
+.vacancy__lead-btn {
+    display: flex;
+    width: fit-content;
+    margin: 0;
+    padding: 12px 24px;
+    cursor: pointer;
+    border: 1px solid #000;
+    background-color: #000;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.2s ease-in;
+}
+
+.vacancy__lead-btn:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+@media only screen and (max-width: 1000px) {
+    .vacancies__list {
+        justify-content: space-around;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .vacancies__title {
+        margin-top: 70px;
+        text-transform: none;
+    }
+
+    .vacancies__features-list {
+        flex-direction: column;
+        margin-top: 40px;
+        padding-top: 20px;
+    }
+
+    .vacancies__feature::before {
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 60px;
+    }
+
+    .vacancies__feature {
+        padding-top: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: left;
+        padding-left: 80px;
+        padding-right: 10px;
+    }
+
+    .vacancies__text {
+        margin-top: 12px;
+    }
+
+    .vacancies__item {
+        margin-bottom: 20px;
+    }
+
+    .vacancies__tel {
+        margin-top: 8px;
+    }
+
+    .vacancies__article {
+        width: 100%;
+    }
+
+    .vacancies__feature-title {
+        font-size: 18px;
+        line-height: 20px;
+        text-align: left;
+    }
+
+    .vacancies__article:nth-child(4n+3),
+    .vacancies__article:nth-child(4n+4) {
+        flex-direction: row;
+    }
+
+    .vacancies__article:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+
+    .vacancies__feature-text {
+        text-align: left;
+        margin-top: 0;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    /* Vacancy page */
+    .vacancy {
+        margin-top: 50px;
+        padding-bottom: 20px;
+        height: 200px;
+    }
+
+    .vacancy__title {
+        font-size: 30px;
+    }
+
+    .vacancy__features-list {
+        flex-direction: column;
+        margin-top: 40px;
+        padding-top: 20px;
+    }
+
+    .vacancy__feature {
+        padding-top: 0;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: left;
+        padding-left: 80px;
+        padding-right: 10px;
+    }
+
+    .vacancy__feature::after {
+        content: none;
+    }
+
+    .vacancy__feature::before {
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60px;
+        height: 60px;
+    }
+
+    .vacancy__lead-btn {
+        padding: 10px 20px;
+        font-size: 20px;
+        border-radius: 20px;
+    }
+
+    .vacancy__feature-content {
+        max-width: max-content;
+        margin-right: auto;
+        font-size: 14px;
+        line-height: 16px;
+    }
+
+    .vacancy__feature-title {
+        font-size: 18px;
+        line-height: 20px;
+        text-align: left;
+    }
+}

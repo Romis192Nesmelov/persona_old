@@ -1,0 +1,68 @@
+.cs-beforeafter {
+  height:        auto;
+  overflow:      hidden;
+  position:      relative;
+  @include user-select-off;
+  > .item {
+    width:          100%;
+    height:         100%;
+    position:       absolute;
+    top:            0;
+    left:           0;
+    pointer-events: none;
+    overflow:       hidden;
+    > .con {
+      display: inline-block;
+      float:   left;
+      width:   $width;
+    }
+  }
+  > .scroller {
+    width:            50px;
+    height:           50px;
+    position:         absolute;
+    left:             100px;
+    top:              50%;
+    transform:        translateY(-50%);
+    border-radius:    50%;
+    background-color: $white;
+    opacity:          0.9;
+    transition:       opacity 0.12s ease-in-out;
+    pointer-events:   auto;
+    cursor:           pointer;
+    box-shadow:       $box-shadow;
+    z-index:          2;
+    &.scrolling {
+      pointer-events: none;
+      opacity:        1;
+    }
+    > svg {
+      width:         100%;
+      height:        100%;
+      border-radius: 50%;
+      padding:       7px;
+    }
+    &:after, &:before {
+      content:     '';
+      display:     block;
+      width:       4px;
+      height:      1080px;
+      position:    absolute;
+      left:        50%;
+      margin-left: -3.5px;
+      z-index:     30;
+      transition:  0.1s;
+      box-shadow:  0.5px 0 7px rgba(100, 100, 100, 0.2);
+      background:  $primary;
+    }
+    &:before {
+      top: 49px;
+    }
+    &:after {
+      bottom: 49px;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,68 @@
+/* Colors */
+/* Style */
+#MainScreen > div {
+  padding: 20px 15px;
+  border-radius: 15px;
+  background: #858b8f center no-repeat;
+  background-size: cover;
+  position: relative;
+}
+@media only screen and (min-width: 1024px) and (max-width: 1239px) {
+  #MainScreen > div {
+    padding: 36px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #MainScreen > div {
+    padding: 31px;
+  }
+}
+#MainScreen > div .img-ms {
+  position: absolute;
+  bottom: 0;
+  right: 20%;
+}
+#MainScreen > div > .wrp {
+  position: relative;
+  z-index: 2;
+}
+#MainScreen p {
+  color: #858b8f;
+}
+#MainScreen p.big {
+  color: white;
+}
+#MainScreen h1 {
+  color: black;
+}
+#MainScreen .item {
+  display: block;
+}
+#MainScreen .item > svg {
+  height: 30px;
+  fill: #858b8f;
+  margin-bottom: 4px;
+}
+#MainScreen .form {
+  position: relative;
+  padding: 25px;
+  background: white;
+  text-align: center;
+  background: white top repeat-x;
+}
+@media only screen and (min-width: 1024px) and (max-width: 1239px) {
+  #MainScreen .form {
+    padding: 21px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #MainScreen .form {
+    padding: 17px;
+  }
+}
+
+#Masters {
+  background: white top center no-repeat;
+}
+
+/*# sourceMappingURL=service.css.map */

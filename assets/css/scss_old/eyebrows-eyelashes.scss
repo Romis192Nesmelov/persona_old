@@ -1,0 +1,40 @@
+@import "vars";
+@import "mixins";
+$black: #161616;
+$gray: #f0ece2;
+$primary: #493328;
+$secondary: rgb(189, 134, 121);
+$gradient: to right, $primary 0%, $secondary 51%, $primary 100%;
+#MainScreen {
+  > div {
+    background-color: $gray;
+  }
+  h1 {
+    color: $primary;
+  }
+  p.big {
+    color: $primary;
+  }
+}
+a.btn, input[type="submit"] {
+  color: $white;
+  @include background-gradient($gradient);
+}
+header {
+  #Bar {
+    background: $primary;
+  }
+}
+#Styles {
+  .question {
+    border-color: $primary;
+  }
+  .item {
+    > h3 {
+      color: $white;
+    }
+  }
+}
+#Principles {
+  background: #f3f3f3;
+}

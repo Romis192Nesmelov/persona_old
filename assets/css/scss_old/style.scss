@@ -1,0 +1,2150 @@
+@import "vars";
+@import "mixins";
+@import "resets";
+*, *::before, *::after { @include box-sizing(border-box); }
+*:focus {
+  outline-color: $primary;
+}
+html {
+  font-size:   13px;
+  line-height: 130%;
+  font-weight: 400;
+  color:       $black;
+  font-family: $font-family;
+  overflow-y:  scroll;
+  overflow-x:  hidden;
+  @include respond-to(mdpi) {
+    font-size: 12px;
+  }
+  @include respond-to(tablet) {
+    font-size: 12px;
+  }
+  @include respond-to(phone) {
+    font-size: 11px;
+  }
+  &.hide-overflow {
+    overflow: hidden;
+    body {
+      overflow: hidden;
+    }
+  }
+}
+h1 {
+  text-transform: uppercase;
+  font-size:      3.2rem;
+  line-height:    130%;
+  font-weight:    700;
+  color:          $black;
+}
+h2 {
+  font-size:   2.2rem;
+  line-height: 130%;
+  font-weight: 700;
+  color:       $black;
+  @include respond-to(phone) {
+    font-size: 1.8rem;
+  }
+}
+h3 {
+  font-size:   1.85rem;
+  line-height: 145%;
+  font-weight: 400;
+  color:       $black;
+  @include respond-to(phone) {
+    font-size: 1.6rem;
+  }
+}
+h6 {
+  font-size:   4.75rem;
+  line-height: 130%;
+  font-weight: 400;
+  color:       $black;
+}
+p {
+  font-size:   1rem;
+  line-height: 140%;
+  font-weight: 400;
+  color:       $black;
+  &.sml {
+    font-size:   0.8rem;
+    line-height: 150%;
+  }
+  &.big {
+    font-size:   1.2rem;
+    line-height: 130%;
+    color:       $black-light;
+    font-weight: 400;
+  }
+}
+q {
+  font-size:   1.2rem;
+  line-height: 100%;
+  font-style:  italic;
+  color:       $black-light;
+}
+a {
+  cursor:          pointer;
+  text-decoration: none;
+  color:           inherit;
+  &.txt {
+    &:hover {
+      border-bottom: 1px dotted;
+    }
+  }
+}
+[data-disabled="disabled"] {
+  cursor: not-allowed !important;
+}
+a.btn, input[type="submit"] {
+  font-family:     $font-family;
+  font-size:       1rem;
+  line-height:     130%;
+  cursor:          pointer;
+  font-weight:     700;
+  text-transform:  uppercase;
+  min-width:       200px;
+  color:           $black;
+  background-size: 200% auto;
+  padding:         $size-ultra $size-small;
+  margin-top:      0;
+  position:        relative;
+  text-align:      center;
+  @include background-gradient($gradient);
+  @include user-select-off;
+  @include appearance(none);
+  display:         inline-block;
+  border:          unset;
+  @include transition(all .35s ease);
+  @include respond-to(mdpi) {
+    padding: $size-mdpi-ultra $size-mdpi-small;
+  }
+  @include respond-to(tablet) {
+    padding:   $size-tab-ultra $size-tab-small;
+    min-width: unset;
+  }
+  @include respond-to(phone) {
+    padding:   $size-mob-ultra $size-mob-small;
+    min-width: unset;
+  }
+  &:hover, &:focus {
+    border:              unset !important;
+    background-position: right center;
+    @include transition(all .5s ease);
+  }
+  &.disabled, &[data-disabled="disabled"] {
+    cursor:     not-allowed;
+    background: $gray-dark;
+  }
+}
+input[type="submit"] {
+  width:         auto;
+  min-width:     150px;
+  margin-bottom: $size-ultra;
+  @include respond-to(mdpi) {
+    padding: $size-mdpi-ultra;
+  }
+  @include respond-to(tablet) {
+    padding:   $size-tab-ultra;
+    min-width: unset;
+  }
+  @include respond-to(phone) {
+    padding:   $size-mob-ultra $size-mob-small;
+    min-width: unset;
+  }
+  &:disabled {
+    background: $gray-dark;
+    cursor:     not-allowed;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+b, strong { font-weight: 700; }
+img {
+  max-width: 100%;
+}
+form {
+  position: relative;
+  .input-group {
+    width:         100%;
+    text-align:    left;
+    margin-bottom: $size-ultra;
+    @include respond-to(mdpi) {
+      margin-bottom: $size-mdpi-ultra;
+    }
+    @include respond-to(tablet) {
+      margin-bottom: $size-tab-ultra;
+    }
+    @include respond-to(phone) {
+      margin-bottom: $size-mob-ultra;
+    }
+    > label {
+      font-size:   0.9rem;
+      line-height: 100%;
+      color:       $black-light;
+    }
+    > input[type="text"], input[type="number"], > input[type="password"], > textarea {
+      font-family: $font-family;
+      margin-top:  4px;
+      width:       100%;
+      background:  $gray;
+      border:      1px solid $gray-dark;
+      padding:     $size-ultra/2 $size-ultra;
+      @include respond-to(mdpi) {
+        padding: $size-mdpi-ultra/2 $size-mdpi-ultra;
+      }
+      @include respond-to(tablet) {
+        padding: $size-tab-ultra/2 $size-tab-ultra;
+      }
+      @include respond-to(phone) {
+        padding: $size-mob-ultra/2 $size-mob-ultra;
+      }
+      &:focus {
+        outline: unset;
+      }
+      &:read-only, &:disabled {
+        background: $gray-dark;
+        cursor:     not-allowed;
+      }
+      &:focus {
+        &:invalid {
+          border: 1px solid $red;
+        }
+        &:valid {
+          border: 1px solid $green;
+        }
+      }
+    }
+    &.file {
+      @include user-select-off;
+      cursor:     pointer;
+      position:   relative;
+      background: $gray;
+      border:     1px solid $gray-dark;
+      padding:    $size-ultra/2 $size-ultra;
+      @include respond-to(mdpi) {
+        padding: $size-mdpi-ultra/2 $size-mdpi-ultra;
+      }
+      @include respond-to(tablet) {
+        padding: $size-tab-ultra/2 $size-tab-ultra;
+      }
+      @include respond-to(phone) {
+        padding: $size-mob-ultra/2 $size-mob-ultra;
+      }
+      > input[type="file"] {
+        width:    0.1px;
+        height:   0.1px;
+        opacity:  0;
+        overflow: hidden;
+        position: absolute;
+        z-index:  -1;
+        &.disabled {
+          cursor: not-allowed;
+        }
+      }
+      > label.rules {
+        position:   absolute;
+        bottom:     5px;
+        left:       0;
+        right:      0;
+        text-align: center;
+      }
+      > label.upload {
+        @include flex-col;
+        align-items:     center;
+        justify-content: center;
+        width:           100%;
+        height:          100%;
+        cursor:          inherit;
+        color:           $black-light;
+        > svg {
+          height:        2rem;
+          fill:          $black-light;
+          margin-bottom: 10px;
+        }
+        > span {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+  .row {
+    > .input-group {
+      margin-bottom: 0;
+    }
+  }
+  &.lead-form {
+    p.big { color: $black !important; }
+  }
+  > .lock {
+    @include flex-col;
+    align-items:     center;
+    justify-content: center;
+    position:        absolute;
+    width:           calc(100% + 10px);
+    height:          calc(100% + 10px);
+    top:             -5px;
+    left:            -5px;
+    bottom:          -5px;
+    right:           -5px;
+    font-size:       1rem;
+    line-height:     140%;
+    font-weight:     400;
+    padding:         $size-ultra;
+    opacity:         0;
+    visibility:      hidden;
+    background:      $white;
+    border:          1px solid $gray-dark;
+    box-shadow:      $box-shadow;
+    @include transition($transition-out);
+    @include respond-to(mdpi) {
+      padding: $size-mdpi-ultra;
+    }
+    @include respond-to(tablet) {
+      padding: $size-tab-ultra;
+    }
+    @include respond-to(phone) {
+      padding: $size-mob-ultra;
+    }
+    &.show {
+      opacity:    1;
+      visibility: visible;
+      @include transition($transition-in);
+    }
+    > .icon {
+      width:  40px;
+      height: 40px;
+      margin: 0 auto $size-ultra auto;
+      @include respond-to(mdpi) {
+        width:  36px;
+        height: 36px;
+        margin: 0 auto $size-mdpi-ultra auto;
+      }
+      @include respond-to(tablet) {
+        margin: 0 auto $size-tab-ultra auto;
+      }
+      @include respond-to(phone) {
+        padding: 0 auto $size-mob-ultra auto;
+      }
+      &.success {
+        background: url(../icons/icon_success.svg) center no-repeat;
+      }
+      &.fail {
+        background: url(../icons/icon_fail.svg) center no-repeat;
+      }
+    }
+  }
+}
+section {
+  padding-top:    $size-big;
+  padding-bottom: $size-big*0.75;
+  @include respond-to(mdpi) {
+    padding-top:    $size-mdpi-big;
+    padding-bottom: $size-mdpi-big*0.75;
+  }
+  @include respond-to(tablet) {
+    padding-top:    $size-tab-big;
+    padding-bottom: $size-tab-big*0.75;
+  }
+  @include respond-to(phone) {
+    padding-top:    $size-mob-big;
+    padding-bottom: $size-mob-big*0.75;
+  }
+  > div {
+    width:  $width;
+    margin: 0 auto;
+    @media only screen and (max-width: $break-laptop) {
+      width: $width-responsive;
+    }
+  }
+  &:first-of-type {
+    padding-top: $size-big*2;
+    @include respond-to(mdpi) {
+      padding-top: $size-mdpi-big*2;
+    }
+    @include respond-to(tablet) {
+      padding-top: $size-tab-big*2.5;
+    }
+    @include respond-to(phone) {
+      padding-top: 0;
+    }
+  }
+}
+.wrp {
+  @include flex-row();
+  flex-wrap:       wrap;
+  justify-content: space-between;
+  > * {
+    margin-bottom: $size-medium;
+    @include respond-to(mdpi) {
+      margin-bottom: $size-mdpi-medium;
+    }
+    @include respond-to(tablet) {
+      margin-bottom: $size-tab-medium;
+    }
+    @include respond-to(phone) {
+      margin-bottom: $size-mob-medium;
+    }
+    &:only-child {
+      margin-bottom: 0;
+    }
+  }
+  .col {
+    @include flex-col();
+    > * {
+      margin-bottom: $size-ultra;
+      @include respond-to(mdpi) {
+        margin-bottom: $size-mdpi-ultra;
+      }
+      @include respond-to(tablet) {
+        margin-bottom: $size-tab-ultra;
+      }
+      @include respond-to(phone) {
+        margin-bottom: $size-mob-ultra;
+      }
+      &:last-child, &:only-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .row {
+    @include flex-row();
+    &.tablet {
+      @include respond-to(tablet) {
+        display: block;
+        > * {
+          margin-right:  0;
+          margin-bottom: $size-tab-small;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    &.mobile-row {
+      @include respond-to(phone) {
+        display: block;
+        > * {
+          margin-right:  0;
+          margin-bottom: $size-mob-small;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    > * {
+      margin-right: $size-small;
+      @include respond-to(mdpi) {
+        margin-right: $size-mdpi-small;
+      }
+      @include respond-to(tablet) {
+        margin-bottom: $size-tab-small;
+      }
+      @include respond-to(phone) {
+        margin-bottom: $size-mob-ultra;
+      }
+      &:last-child, &:only-child {
+        margin-right: 0;
+      }
+    }
+    &.no-mrgn {
+      > * {
+        margin-right: 0;
+      }
+    }
+  }
+}
+.grd {
+  // TODO
+}
+.w-1 { width: 100%; }
+.w-1-12 {
+  width: calc((100% - #{$mid}) * 0.08333);
+  &.no-mrgn {
+    width: calc(100% * 0.08333);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-1-10 {
+  width: calc((100% - #{$mid}) * 0.1);
+  &.no-mrgn {
+    width: calc(100% * 0.1);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-2-12 {
+  width: calc((100% - #{$mid}) * 0.16666);
+  &.no-mrgn {
+    width: calc(100% * 0.16666);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-2-10 {
+  width: calc((100% - #{$mid}) * 0.2);
+  &.no-mrgn {
+    width: calc(100% * 0.2);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-3-12 {
+  width: calc((100% - #{$mid}) * 0.25);
+  &.no-mrgn {
+    width: calc(100% * 0.25);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-3-10 {
+  width: calc((100% - #{$mid}) * 0.3);
+  &.no-mrgn {
+    width: calc(100% * 0.3);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-4-12 {
+  width: calc((100% - #{$mid}) * 0.33333);
+  &.no-mrgn {
+    width: calc(100% * 0.33333);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-4-10 {
+  width: calc((100% - #{$mid}) * 0.4);
+  &.no-mrgn {
+    width: calc(100% * 0.4);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-5-12 {
+  width: calc((100% - #{$mid}) * 0.416666);
+  &.no-mrgn {
+    width: calc(100% * 0.416666);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-6-12, .w-5-10 {
+  width: calc((100% - #{$mid}) * 0.5);
+  &.no-mrgn {
+    width: calc(100% * 0.5);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-7-12 {
+  width: calc((100% - #{$mid}) * 0.583333);
+  &.no-mrgn {
+    width: calc(100% * 0.583333);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-6-10 {
+  width: calc((100% - #{$mid}) * 0.6);
+  &.no-mrgn {
+    width: calc(100% * 0.6);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-8-12 {
+  width: calc((100% - #{$mid}) * 0.66666);
+  &.no-mrgn {
+    width: calc(100% * 0.66666);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-7-10 {
+  width: calc((100% - #{$mid}) * 0.7);
+  &.no-mrgn {
+    width: calc(100% * 0.7);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-9-12 {
+  width: calc((100% - #{$mid}) * 0.75);
+  &.no-mrgn {
+    width: calc(100% * 0.75);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-8-10 {
+  width: calc((100% - #{$mid}) * 0.8);
+  &.no-mrgn {
+    width: calc(100% * 0.8);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-10-12 {
+  width: calc((100% - #{$mid}) * 0.83333);
+  &.no-mrgn {
+    width: calc(100% * 0.83333);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-9-10 {
+  width: calc((100% - #{$mid}) * 0.9);
+  &.no-mrgn {
+    width: calc(100% * 0.9);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.w-11-12 {
+  width: calc((100% - #{$mid}) * 0.91666);
+  &.no-mrgn {
+    width: calc(100% * 0.91666);
+  }
+  @include respond-to(tablet) {
+    &.tablet {
+      width: 100% !important;
+    }
+  }
+  @include respond-to(phone) {
+    &.mobile {
+      width: 100% !important;
+    }
+  }
+}
+.primary { color: $primary; }
+.secondary { color: $secondary; }
+.cntr-txt { text-align: center; }
+.rght-txt { text-align: right; }
+.lft-txt { text-align: left; }
+.cntr { justify-content: center; }
+.cntr-itms { align-items: center; }
+.lft, .top { justify-content: flex-start; }
+.lft-itms, .top-itms { align-items: flex-start; }
+.rght, .bot { justify-content: flex-end; }
+.rght-itms, .bot-itms { align-items: flex-end; }
+.jsfd { justify-content: space-between; }
+.evnly { justify-content: space-evenly; }
+.no-wrap { white-space: nowrap; }
+.bot-mrgn-ult {
+  margin-bottom: $size-ultra !important;
+  @include respond-to(mdpi) {
+    margin-bottom: $size-mdpi-ultra !important;
+  }
+  @include respond-to(tablet) {
+    margin-bottom: $size-tab-ultra !important;
+  }
+  @include respond-to(phone) {
+    margin-bottom: $size-mob-ultra !important;
+  }
+}
+.bot-mrgn-sml {
+  margin-bottom: $size-small !important;
+  @include respond-to(mdpi) {
+    margin-bottom: $size-mdpi-small !important;
+  }
+  @include respond-to(tablet) {
+    margin-bottom: $size-tab-small !important;
+  }
+  @include respond-to(phone) {
+    margin-bottom: $size-mob-small !important;
+  }
+}
+.bot-mrgn-med {
+  margin-bottom: $size-medium !important;
+  @include respond-to(mdpi) {
+    margin-bottom: $size-mdpi-medium !important;
+  }
+  @include respond-to(tablet) {
+    margin-bottom: $size-tab-medium !important;
+  }
+  @include respond-to(phone) {
+    margin-bottom: $size-mob-medium !important;
+  }
+}
+.bot-mrgn-big {
+  margin-bottom: $size-big !important;
+  @include respond-to(mdpi) {
+    margin-bottom: $size-mdpi-big !important;
+  }
+  @include respond-to(tablet) {
+    margin-bottom: $size-tab-big !important;
+  }
+  @include respond-to(phone) {
+    margin-bottom: $size-mob-big !important;
+  }
+}
+.bot-mrgn-hug {
+  margin-bottom: $size-huge !important;
+  @include respond-to(mdpi) {
+    margin-bottom: $size-mdpi-huge !important;
+  }
+  @include respond-to(tablet) {
+    margin-bottom: $size-tab-huge !important;
+  }
+  @include respond-to(phone) {
+    margin-bottom: $size-mob-huge !important;
+  }
+}
+.bg-gradient {
+  @include background-gradient($bg-gradient);
+  background-size: 100% 100%;
+  color:           $black;
+  font-weight:     500;
+}
+.bg-heading {
+  position: relative;
+  display:  inline-block;
+  &:before {
+    content:         '';
+    position:        absolute;
+    top:             -6px;
+    bottom:          -6px;
+    left:            -60px;
+    right:           -35px;
+    @include background-gradient($bg-gradient);
+    background-size: 100% 100%;
+    box-shadow:      $box-shadow;
+  }
+  > span {
+    position:    relative;
+    font-weight: 500;
+    color:       $black;
+    z-index:     2;
+  }
+}
+.table {
+  display: table;
+  > .row {
+    display: table-row;
+    > .cell {
+      display:        table-cell;
+      padding:        $size-ultra $size-ultra/2;
+      vertical-align: middle;
+      border-bottom:  1px solid $gray;
+      @include respond-to(mdpi) {
+        padding: $size-mdpi-ultra $size-mdpi-ultra/2;
+      }
+      @include respond-to(tablet) {
+        padding: $size-tab-ultra $size-tab-ultra/2;
+      }
+      @include respond-to(phone) {
+        padding: $size-mob-ultra $size-mob-ultra/2;
+      }
+    }
+  }
+}
+.arrow {
+  cursor:        pointer;
+  position:      absolute;
+  height:        $size-button;
+  width:         $size-button;
+  background:    $white;
+  top:           0;
+  border-radius: 50%;
+  @include respond-to(mdpi) {
+  }
+  &:before, &:after {
+    @include transition($transition-in);
+  }
+  &:before {
+    content:    "";
+    width:      $size-button/2;
+    height:     $size-button/25;
+    background: $black;
+    position:   absolute;
+    top:        50%;
+    margin-top: -$size-button/25/2;
+  }
+  &:after {
+    content:      "";
+    width:        0;
+    height:       0;
+    border-style: solid;
+    position:     absolute;
+    top:          50%;
+    margin-top:   -$size-button/10;
+  }
+  &.right {
+    right: 0;
+    &:before {
+      right: $size-button/2 - $size-button/5; //14px;
+    }
+    &:after {
+      border-width: $size-button/10 0 $size-button/10 $size-button/10;
+      border-color: transparent transparent transparent $black;
+      right:        $size-button/5;
+    }
+    &:hover {
+      &:before {
+        right: $size-button/2 - $size-button/10;
+        width: $size-button/2;
+      }
+      &:after {
+        right: $size-button/2 - $size-button/5; //15px;
+      }
+    }
+  }
+  &.left {
+    left: 0;
+    &:before {
+      left: $size-button/2 - $size-button/5;
+    }
+    &:after {
+      border-width: $size-button/10 $size-button/10 $size-button/10 0;
+      border-color: transparent $black transparent transparent;
+      left:         $size-button/5;
+    }
+    &:hover {
+      &:before {
+        left:  $size-button/2 - $size-button/10;
+        width: $size-button/2;
+      }
+      &:after {
+        left: $size-button/2 - $size-button/5;
+      }
+    }
+  }
+}
+.close {
+  width:      $size-button;
+  height:     $size-button;
+  box-sizing: border-box;
+  display:    inline-block;
+  position:   absolute;
+  right:      0;
+  background: $black;
+  cursor:     pointer;
+  z-index:    9999;
+  &:before, &:after {
+    transform:        rotate(-45deg);
+    content:          '';
+    position:         absolute;
+    top:              50%;
+    left:             50%;
+    display:          block;
+    margin-top:       -$size-button/12;
+    margin-left:      -$size-button/4;
+    height:           $size-button/12;
+    width:            $size-button/2;
+    background-color: $white;
+    @include transition($transition-out);
+  }
+  &:after {
+    transform: rotate(-135deg);
+  }
+  &:hover {
+    &:before, &:after {
+      @include transition($transition-in);
+      transform: rotate(0deg);
+    }
+  }
+}
+.loader {
+  -webkit-animation: spin 1s linear infinite;
+  animation:         spin 1s linear infinite;
+  border:            3px solid $gray-dark;
+  border-top:        3px solid $primary;
+  border-radius:     50%;
+  height:            50px;
+  width:             50px;
+  position:          absolute;
+  top:               0;
+  bottom:            0;
+  margin:            auto !important;
+  left:              0;
+  right:             0;
+  @include respond-to(mdpi) {
+  }
+  @-webkit-keyframes spin {
+    to {
+      border-top-color:  $primary;
+      -webkit-transform: rotate(360deg);
+      transform:         rotate(360deg);
+    }
+  }
+  @keyframes spin {
+    to {
+      border-top-color:  $secondary;
+      -webkit-transform: rotate(360deg);
+      transform:         rotate(360deg);
+    }
+  }
+}
+header {
+  position:   fixed;
+  top:        0;
+  left:       0;
+  right:      0;
+  background: $white;
+  z-index:    98;
+  @include respond-to(phone) {
+    position: relative;
+  }
+  #Bar {
+    height:     40px;
+    background: $primary;
+    @include transition(all .05s linear);
+    @include respond-to(mdpi) {
+      height: 36px;
+    }
+    @include respond-to(phone) {
+      display: none;
+    }
+    > div {
+      @include flex-row;
+      width:           $width;
+      height:          100%;
+      margin:          0 auto;
+      justify-content: space-between;
+      align-items:     center;
+      @media only screen and (max-width: $break-laptop) {
+        width: $width-responsive;
+      }
+    }
+    .info {
+      @include flex-row;
+      align-items: center;
+      > * {
+        margin-right: $size-small;
+        @include respond-to(mdpi) {
+          margin-right: $size-mdpi-small;
+        }
+        @include respond-to(tablet) {
+          margin-right: $size-tab-small;
+        }
+        @include respond-to(phone) {
+          margin-right: $size-mob-small;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+    * {
+      color: $white;
+    }
+    .icon {
+      width:  18px;
+      height: 18px;
+      fill:   $white;
+      float:  left;
+      @include respond-to(mdpi) {
+        width:  17px;
+        height: 17px;
+      }
+    }
+  }
+  #Header {
+    > div {
+      @include flex-row;
+      width:           $width;
+      margin:          0 auto;
+      justify-content: space-between;
+      align-items:     center;
+      padding:         $size-small 0;
+      @media only screen and (max-width: $break-laptop) {
+        width: $width-responsive;
+      }
+      @include respond-to(mdpi) {
+        padding: $size-mdpi-small 0;
+      }
+      @include respond-to(tablet) {
+        padding: $size-tab-small 0;
+      }
+      @include respond-to(phone) {
+        display:    block;
+        padding:    $size-mob-small 0;
+        text-align: center;
+        > * {
+          margin-bottom: $size-mob-small;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .logo {
+      @include respond-to(phone) {
+        display: block;
+        margin:  0 auto $size-mob-small auto;
+        width:   100%;
+      }
+      > img {
+        width: 180px;
+        float: left;
+        @include respond-to(mdpi) {
+          width: 160px;
+        }
+        @include respond-to(tablet) {
+          width: 140px;
+        }
+        @include respond-to(phone) {
+          float:   unset;
+          display: block;
+          margin:  0 auto;
+        }
+      }
+    }
+    nav {
+      @include flex-row;
+      justify-content: center;
+      align-items:     center;
+      @include respond-to(phone) {
+      }
+      > a {
+        font-size:    1.15rem;
+        line-height:  120%;
+        font-weight:  400;
+        list-style:   none;
+        border-right: 1px solid $gray-dark;
+        padding:      0 $size-medium;
+        @include respond-to(mdpi) {
+          padding: 0 $size-mdpi-medium;
+        }
+        @include respond-to(tablet) {
+          font-size: 1rem;
+          padding:   0 $size-tab-small;
+        }
+        @include respond-to(phone) {
+          padding: unset;
+          padding: 0 $size-mob-ultra;
+        }
+        &:first-child {
+          padding-left: unset;
+        }
+        &:last-child {
+          border-right: unset;
+        }
+        &:hover {
+          > span {
+            border-bottom: 1px dotted;
+          }
+        }
+      }
+    }
+    .tel {
+      font-size:     1.2rem;
+      font-weight:   500;
+      background:    $white;
+      border:        1px solid $black;
+      border-radius: 25px;
+      padding:       $size-ultra/2 $size-ultra;
+      position:      relative;
+      cursor:        pointer;
+      @include respond-to(mdpi) {
+        padding: $size-mdpi-ultra/2 $size-mdpi-ultra;
+      }
+      @include respond-to(tablet) {
+        font-size: 1rem;
+        padding:   $size-tab-ultra/2 $size-tab-ultra;
+      }
+      @include respond-to(phone) {
+        font-size: 1rem;
+        padding:   $size-mob-ultra/2 $size-mob-ultra;
+      }
+      &.dropdown {
+        > .tel-list {
+          opacity:    0;
+          position:   absolute;
+          width:      225px;
+          right:      -5px;
+          bottom:     0;
+          transform:  translateY(100%);
+          background: $white;
+          box-shadow: $box-shadow;
+          visibility: hidden;
+          @include respond-to(mdpi) {
+          }
+          @include respond-to(phone) {
+            width: 100%;
+            left:  0;
+            right: 0;
+          }
+          > a {
+            display:       block;
+            color:         $black;
+            border-bottom: 1px solid $gray;
+            padding:       $size-small/2;
+            @include flex-row;
+            align-items:   center;
+            @include respond-to(mdpi) {
+              padding: $size-mdpi-small/2;
+            }
+            @include respond-to(tablet) {
+              padding: $size-tab-small/2;
+            }
+            > svg {
+              width:        20px;
+              height:       20px;
+              margin-right: $size-ultra;
+              @include respond-to(mdpi) {
+                width:        18px;
+                height:       18px;
+                margin-right: $size-mdpi-ultra;
+              }
+              @include respond-to(tablet) {
+                margin-right: $size-tab-ultra;
+              }
+              @include respond-to(phone) {
+                margin-right: $size-mob-ultra;
+              }
+            }
+            p {
+              font-weight:   700;
+              font-size:     0.8rem;
+              line-height:   120%;
+              margin-bottom: 4px;
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+            &:hover {
+              background: $gray;
+            }
+            &:last-child {
+              border-bottom: unset;
+            }
+          }
+        }
+      }
+      &:hover {
+        background: $black;
+        color:      $white;
+        &.dropdown {
+          > .tel-list {
+            visibility: visible;
+            opacity:    1;
+          }
+        }
+      }
+    }
+  }
+  &.mini {
+    border-bottom: 1px solid $black-light;
+    #Bar {
+      height: 0;
+      @include transition(all .15s linear);
+    }
+  }
+}
+.fa {
+  vertical-align: middle;
+}
+footer {
+  background: $black;
+  > div {
+    @include flex-row;
+    justify-content: space-between;
+    width:           $width;
+    margin:          0 auto;
+    padding-top:     $size-medium;
+    padding-bottom:  $size-small;
+    @media only screen and (max-width: $break-laptop) {
+      width: $width-responsive;
+    }
+    @include respond-to(mdpi) {
+      padding-top:    $size-mdpi-medium;
+      padding-bottom: $size-mdpi-small;
+    }
+    @include respond-to(tablet) {
+      padding-top:    $size-tab-medium;
+      padding-bottom: $size-tab-small;
+    }
+    @include respond-to(phone) {
+      padding-top:    $size-mob-medium;
+      padding-bottom: $size-mob-small;
+    }
+    &.copyright {
+      border-top: 1px solid $black-light;
+      background: $black;
+      width:      100%;
+      padding:    15px 0;
+      text-align: center;
+      > a {
+        display: block;
+        margin:  0 auto;
+        > img {
+          width:   225px;
+          opacity: .6;
+        }
+        &:hover {
+          > img {
+            opacity: .8;
+          }
+        }
+      }
+    }
+  }
+  * {
+    color: $gray;
+  }
+  .logo {
+    width: 225px;
+  }
+}
+@import "../widgets/slider";
+@import "../widgets/popup";
+@import "../widgets/beforeafter";
+@import "../widgets/tooltip";
+.info-popup {
+  > .content {
+    width:   675px;
+    padding: 0;
+    @include respond-to(phone) {
+      width: $width-responsive;
+    }
+    .text {
+      padding: $size-small;
+      @include respond-to(mdpi) {
+        padding: $size-mdpi-small;
+      }
+      @include respond-to(tablet) {
+        padding: $size-tab-small;
+      }
+      @include respond-to(phone) {
+        padding: $size-mob-small;
+      }
+      h2 {
+        font-weight: 400;
+      }
+      p {
+        color: $black-light;
+      }
+    }
+    .img {
+      background:      $black center no-repeat;
+      background-size: cover;
+    }
+  }
+}
+.style-popup {
+  > .content {
+    width:   $width - 1px;
+    padding: 0;
+    @media only screen and (max-width: $break-laptop) {
+      width: $width-responsive;
+    }
+    .header {
+      position:        relative;
+      height:          135px;
+      background:      $gray-dark center bottom no-repeat;
+      background-size: cover;
+      margin-bottom:   0;
+      > h2 {
+        position: absolute;
+        left:     $size-small;
+        bottom:   $size-small;
+        @include respond-to(mdpi) {
+          left:   $size-mdpi-small;
+          bottom: $size-mdpi-small;
+        }
+        @include respond-to(tablet) {
+          left:   $size-tab-small;
+          bottom: $size-tab-small;
+        }
+        @include respond-to(phone) {
+          left:   $size-mob-small;
+          bottom: $size-mob-small;
+        }
+      }
+    }
+    .body {
+      padding: $size-small;
+      @include respond-to(mdpi) {
+        padding: $size-mdpi-small;
+      }
+      @include respond-to(tablet) {
+        padding: $size-tab-small;
+      }
+      @include respond-to(phone) {
+        padding: $size-mob-small;
+      }
+    }
+    p {
+      color: $black-light;
+    }
+    svg {
+      fill:         $black-light;
+      width:        25px;
+      height:       25px;
+      margin-right: $size-ultra;
+      @include respond-to(mdpi) {
+        margin-right: $size-mdpi-ultra;
+      }
+      @include respond-to(tablet) {
+        margin-right: $size-tab-ultra;
+      }
+      @include respond-to(phone) {
+        padding: $size-mob-ultra;
+      }
+    }
+    img {
+      float: left;
+    }
+    .prev, .next {
+      margin: auto !important;
+    }
+  }
+}
+#Login {
+  .wrp {
+    > * {
+      padding:    $size-small;
+      box-shadow: $box-shadow;
+      @include respond-to(mdpi) {
+        padding: $size-mdpi-small;
+      }
+      @include respond-to(tablet) {
+        padding: $size-tab-small;
+      }
+      @include respond-to(phone) {
+        padding: $size-mob-small;
+      }
+    }
+  }
+}
+#Salons {
+  .grd {
+    $salons-grid: (
+                      cols: repeat(4, 1fr),
+                      row-gap: $size-small,
+                      col-gap: $size-small
+                  );
+    @include grid($salons-grid);
+    @include respond-to(mdpi) {
+      $salons-grid: (
+                        cols: repeat(4, 1fr),
+                        row-gap: $size-mdpi-small,
+                        col-gap: $size-mdpi-small
+                    );
+      @include grid($salons-grid);
+    }
+    @include respond-to(tablet) {
+      $salons-grid: (
+                        cols: repeat(3, 1fr),
+                        row-gap: $size-tab-small,
+                        col-gap: $size-tab-small
+                    );
+      @include grid($salons-grid);
+    }
+    @include respond-to(phone) {
+      display: block;
+      width:   100%;
+    }
+    > .item {
+      background: $gray;
+      border:     1px solid $gray-dark;
+      padding:    $size-ultra;
+      text-align: center;
+      @include transition($transition-out);
+      @include respond-to(mdpi) {
+        padding: $size-mdpi-ultra;
+      }
+      @include respond-to(tablet) {
+        padding: $size-tab-ultra;
+      }
+      @include respond-to(phone) {
+        display:       block;
+        width:         100%;
+        margin-bottom: $size-mob-ultra;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      > p {
+        font-weight: 700;
+      }
+      .metro {
+        width:          20px;
+        height:         20px;
+        vertical-align: bottom;
+      }
+      &:hover {
+        transform:  scale(1.02);
+        z-index:    2;
+        box-shadow: $box-shadow;
+        @include transition($transition-in);
+      }
+    }
+  }
+}
+#Services {
+  &.big {
+    .grd {
+      $services: (
+                     cols: repeat(4, 1fr),
+                     row-gap: $size-small,
+                     col-gap: $size-small
+                 );
+      @include grid($services);
+      @include respond-to(mdpi) {
+        $services: (
+                       cols: repeat(4, 1fr),
+                       row-gap: $size-mdpi-small,
+                       col-gap: $size-mdpi-small
+                   );
+        @include grid($services);
+      }
+      @include respond-to(tablet) {
+        $services: (
+                       cols: repeat(3, 1fr),
+                       row-gap: $size-tab-small,
+                       col-gap: $size-tab-small
+                   );
+        @include grid($services);
+      }
+      @include respond-to(phone) {
+        display: block;
+        width:   100%;
+      }
+      > .item {
+        @include flex-col;
+        background:      $gray-dark center bottom no-repeat;
+        height:          130px;
+        border:          1px solid $black;
+        position:        relative;
+        justify-content: flex-end;
+        padding:         $size-ultra/2;
+        @include respond-to(mdpi) {
+          height:  110px;
+          padding: $size-mdpi-ultra/2;
+        }
+        @include respond-to(tablet) {
+          height:  130px;
+          padding: $size-tab-ultra/2;
+        }
+        @include respond-to(phone) {
+          width:         100%;
+          padding:       $size-mob-ultra/2;
+          margin-bottom: $size-mob-small;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+        &:before {
+          content:  '';
+          position: absolute;
+          width:    100%;
+          left:     0;
+          bottom:   0;
+          height:   30px;
+          @include background-gradient(to bottom, rgba($black, 0) 0%, rgba($black, 0.15) 50%, rgba($black, 0.35) 75%);
+        }
+        > p {
+          position:    relative;
+          font-size:   1.1rem;
+          color:       $white;
+          font-weight: 500;
+          text-align:  center;
+          &:after {
+            display:    block;
+            content:    '';
+            width:      15%;
+            margin:     2px auto 0 auto;
+            height:     2px;
+            transition: all .4s ease-in-out, opacity 0s linear;
+            background: $white;
+            opacity:    .6;
+          }
+        }
+        &:hover {
+          > p {
+            &:after {
+              width:      50%;
+              opacity:    .9;
+              transition: all .4s ease-in-out, opacity 0s linear;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.sml {
+    h2 {
+      font-weight: 400;
+    }
+    .grd {
+      $service-small-grid: (
+                               cols: repeat(3, 1fr),
+                               row-gap: $size-ultra,
+                               col-gap: $size-ultra
+                           );
+      @include grid($service-small-grid);
+      @include respond-to(mdpi) {
+        $service-small-grid: (
+                                 cols: repeat(3, 1fr),
+                                 row-gap: $size-mdpi-ultra,
+                                 col-gap: $size-mdpi-ultra
+                             );
+        @include grid($service-small-grid);
+      }
+      @include respond-to(tablet) {
+        $service-small-grid: (
+                                 cols: repeat(2, 1fr),
+                                 row-gap: $size-tab-ultra,
+                                 col-gap: $size-tab-ultra
+                             );
+        @include grid($service-small-grid);
+      }
+      @include respond-to(phone) {
+        display: block;
+        width:   100%;
+      }
+      .item {
+        @include flex-row;
+        align-items: center;
+        padding:     $size-ultra $size-small;
+        @include respond-to(mdpi) {
+          padding: $size-mdpi-ultra $size-mdpi-small;
+        }
+        @include respond-to(tablet) {
+          padding: $size-tab-ultra $size-tab-small;
+        }
+        @include respond-to(phone) {
+          width:   100%;
+          padding: $size-mob-ultra $size-mob-ultra;
+        }
+        > img {
+          border-radius: 50%;
+          width:         95px;
+          height:        95px;
+          margin-right:  $size-ultra;
+          @include respond-to(mdpi) {
+            width:        85px;
+            height:       85px;
+            margin-right: $size-mdpi-ultra;
+          }
+          @include respond-to(tablet) {
+            margin-right: $size-tab-ultra;
+          }
+          @include respond-to(phone) {
+            margin-right: $size-mob-ultra;
+          }
+        }
+        > p {
+          font-size: 1.2rem;
+          color:     $black-light;
+        }
+        &:hover {
+          background: $gray;
+        }
+      }
+    }
+  }
+}
+#Styles {
+  .grd {
+    $styles-grid: (
+                      cols: repeat(4, 1fr),
+                      row-gap: $size-small,
+                      col-gap: $size-small
+                  );
+    @include grid($styles-grid);
+    @include respond-to(mdpi) {
+      $styles-grid: (
+                        cols: repeat(4, 1fr),
+                        row-gap: $size-mdpi-small,
+                        col-gap: $size-mdpi-small
+                    );
+      @include grid($styles-grid);
+    }
+    @include respond-to(tablet) {
+      $styles-grid: (
+                        cols: repeat(2, 1fr),
+                        row-gap: $size-tab-small,
+                        col-gap: $size-tab-small
+                    );
+      @include grid($styles-grid);
+    }
+    @include respond-to(phone) {
+      display: block;
+      width:   100%;
+    }
+    > .w-3-12 {
+      width: 100% !important;
+    }
+    > .w-6-12 {
+      width: 100% !important;
+      &:nth-child(2n) {
+        grid-column: 3/5;
+      }
+      &:nth-child(2n+1) {
+        grid-column: 1/3;
+      }
+    }
+  }
+  .question {
+    border:     6px solid $primary;
+    text-align: center;
+    padding:    $size-small;
+    background: $white;
+    @include respond-to(mdpi) {
+      padding: $size-mdpi-small;
+    }
+    @include respond-to(tablet) {
+      padding: $size-tab-small;
+    }
+    @include respond-to(phone) {
+      padding: $size-mob-small;
+    }
+    > h6 {
+      font-size:   10rem;
+      line-height: 80%;
+      color:       $gray-dark;
+      font-weight: 900;
+    }
+  }
+  .item {
+    cursor:          pointer;
+    display:         block;
+    width:           100%;
+    height:          150px;
+    border:          1px solid $black;
+    margin-bottom:   $size-small;
+    background:      $gray-dark center bottom no-repeat;
+    background-size: cover;
+    padding:         $size-ultra;
+    @include transition($transition-out);
+    @include flex-col;
+    @include respond-to(mdpi) {
+      margin-bottom: $size-mdpi-small;
+    }
+    @include respond-to(tablet) {
+      margin-bottom: $size-tab-small;
+    }
+    @include respond-to(phone) {
+      margin-bottom: $size-mob-small;
+    }
+    &.small {
+    }
+    &.big {
+      min-height: 150px*2 + $size-small;
+      height:     100%;
+      @include respond-to(mdpi) {
+        min-height: 150px*2 + $size-mdpi-small;
+      }
+      @include respond-to(tablet) {
+        min-height: 150px*2 + $size-tab-small;
+      }
+      @include respond-to(phone) {
+        min-height: 150px;
+      }
+    }
+    > h3 {
+      font-weight: 700;
+    }
+    &.bottom-left {
+      text-align:      left;
+      justify-content: flex-end;
+    }
+    &.bottom-right {
+      text-align:      right;
+      justify-content: flex-end;
+    }
+    &.top-left {
+      text-align:      left;
+      justify-content: flex-start;
+    }
+    &.top-right {
+      text-align:      right;
+      justify-content: flex-start;
+    }
+    &:hover {
+      transform:  scale(1.02);
+      box-shadow: $box-shadow;
+      @include transition($transition-in);
+    }
+  }
+  .col {
+    @include respond-to(phone) {
+      margin-bottom: $size-mob-small;
+    }
+    .item {
+      &:last-child, &:only-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+#StylesSmall {
+  .header {
+    position:        relative;
+    height:          135px;
+    background:      $gray-dark center bottom no-repeat;
+    background-size: cover;
+    margin-bottom:   0;
+    > h2 {
+      position: absolute;
+      left:     $size-small;
+      bottom:   $size-small;
+      @include respond-to(mdpi) {
+        left:   $size-mdpi-small;
+        bottom: $size-mdpi-small;
+      }
+      @include respond-to(tablet) {
+        left:   $size-tab-small;
+        bottom: $size-tab-small;
+      }
+      @include respond-to(phone) {
+        left:   $size-mob-small;
+        bottom: $size-mob-small;
+      }
+    }
+  }
+  .body {
+    padding: $size-small;
+    @include respond-to(mdpi) {
+      padding: $size-mdpi-small;
+    }
+    @include respond-to(tablet) {
+      padding: $size-tab-small;
+    }
+    @include respond-to(phone) {
+      padding: $size-mob-small;
+    }
+  }
+  p {
+    color: $black-light;
+  }
+  svg {
+    fill:         $black-light;
+    width:        25px;
+    height:       25px;
+    margin-right: $size-ultra;
+    @include respond-to(mdpi) {
+      margin-right: $size-mdpi-ultra;
+    }
+    @include respond-to(tablet) {
+      margin-right: $size-tab-ultra;
+    }
+    @include respond-to(phone) {
+      margin-right: $size-mob-ultra;
+    }
+  }
+  img {
+    float: left;
+  }
+  .prev, .next {
+    margin: auto !important;
+  }
+  .grd {
+    $styles-grid: (
+                      cols: repeat(4, 1fr),
+                      row-gap: $size-small,
+                      col-gap: $size-small
+                  );
+    @include grid($styles-grid);
+    @include respond-to(mdpi) {
+      $styles-grid: (
+                        cols: repeat(4, 1fr),
+                        row-gap: $size-mdpi-small,
+                        col-gap: $size-mdpi-small
+                    );
+      @include grid($styles-grid);
+    }
+    @include respond-to(tablet) {
+      $styles-grid: (
+                        cols: repeat(2, 1fr),
+                        row-gap: $size-tab-small,
+                        col-gap: $size-tab-small
+                    );
+      @include grid($styles-grid);
+    }
+    @include respond-to(phone) {
+      display: block;
+      width:   100%;
+    }
+    > .item {
+      @include flex-row;
+      align-items: center;
+      padding:     $size-ultra $size-small;
+      @include respond-to(mdpi) {
+        padding: $size-mdpi-ultra $size-mdpi-small;
+      }
+      @include respond-to(tablet) {
+        padding: $size-tab-ultra $size-tab-small;
+      }
+      @include respond-to(phone) {
+        padding: $size-mob-ultra $size-mob-small;
+      }
+      > img {
+        border-radius: 50%;
+        width:         95px;
+        height:        95px;
+        margin-right:  $size-ultra;
+        @include respond-to(mdpi) {
+          width:        85px;
+          height:       85px;
+          margin-right: $size-mdpi-ultra;
+        }
+        @include respond-to(tablet) {
+          margin-right: $size-tab-ultra;
+        }
+        @include respond-to(phone) {
+          margin-right: $size-mob-ultra;
+        }
+      }
+      > p {
+        font-size: 1.2rem;
+        color:     $black-light;
+      }
+      &:hover {
+        background: $gray;
+      }
+    }
+  }
+}
+#Principles {
+  @include respond-to(mdpi) {
+    > div {
+      width: 960px;
+    }
+    .cs-beforeafter > .item > .con {
+      width: 960px;
+    }
+  }
+  @media only screen and (max-width: $break-tablet - 1) {
+    display: none;
+  }
+  h2 {
+    font-weight: 400;
+    font-size:   3rem;
+  }
+  img {
+    float: left;
+  }
+}
+#Offer, #OfferQuestion {
+  padding-top:    $size-medium;
+  padding-bottom: $size-medium;
+  background:     $white center no-repeat;
+  @include respond-to(mdpi) {
+    padding-top:    $size-mdpi-medium;
+    padding-bottom: $size-mdpi-medium;
+  }
+  @include respond-to(tablet) {
+    padding-top:    $size-tab-medium;
+    padding-bottom: $size-tab-medium;
+  }
+  @include respond-to(phone) {
+    padding-top:    $size-mob-medium;
+    padding-bottom: $size-mob-medium;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+  form {
+    text-align: center;
+    > p {
+      color: $black-light;
+    }
+  }
+}
+#About {
+  background: $gray;
+  > div {
+    position:      relative;
+    background:    $white;
+    border-radius: $radius;
+    box-shadow:    $box-shadow;
+  }
+  .bg-heading {
+    position: absolute;
+    z-index:  2;
+    top:      $size-small;
+    @include respond-to(mdpi) {
+      top: $size-mdpi-small;
+    }
+    @include respond-to(tablet) {
+      top: $size-tab-small;
+    }
+    @include respond-to(phone) {
+      top:     $size-mob-small;
+      display: none;
+    }
+    &:before {
+      left: -25px;
+    }
+  }
+  .about-slider {
+    margin-bottom: 0;
+    .content {
+      border-radius: $radius $radius 0 0;
+    }
+    img {
+      border-radius: $radius $radius 0 0;
+      width:         100%;
+      float:         left;
+    }
+  }
+  .text {
+    padding:       $size-medium;
+    margin-bottom: 0;
+    @include respond-to(mdpi) {
+      padding: $size-mdpi-small;
+    }
+    @include respond-to(tablet) {
+      padding: $size-tab-small;
+    }
+    @include respond-to(phone) {
+      padding: $size-mob-small;
+    }
+    .item {
+      border-right: 1px solid $gray-dark;
+      &:last-of-type {
+        border-right: unset;
+      }
+      > svg {
+        width:        32px;
+        height:       32px;
+        fill:         $black-light;
+        margin-right: 10px;
+      }
+      > p {
+        color: $black-light;
+        strong {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+#Masters {
+  background: $gray top center no-repeat;
+  h2 {
+    color: $white;
+  }
+  .row {
+    padding-top: 225px;
+    .item {
+      background:    $white;
+      padding:       $size-small;
+      border-radius: 50px;
+      border:        1px solid $black-light;
+      box-shadow:    $box-shadow;
+      @include respond-to(mdpi) {
+        padding: $size-mdpi-small;
+      }
+      @include respond-to(tablet) {
+        padding: $size-tab-small;
+      }
+      @include respond-to(phone) {
+        padding: $size-mob-small;
+      }
+      h6 {
+        font-size:   4.2rem;
+        line-height: 100%;
+        color:       $black-light;
+        font-weight: 300;
+      }
+      p.big {
+        font-weight: 700;
+      }
+    }
+  }
+}
+#Locations {
+  background: $gray;
+  #Map {
+    min-height: 250px;
+  }
+  .salon-list {
+    background: $white;
+    padding:    $size-small;
+    @include respond-to(mdpi) {
+      padding: $size-mdpi-small;
+    }
+    @include respond-to(tablet) {
+      padding: $size-tab-small;
+    }
+    @include respond-to(phone) {
+      padding: $size-mob-small;
+    }
+    h2 {
+      font-weight: 400;
+    }
+    .row {
+      cursor: pointer;
+      @include transition($transition-out);
+      > .cell {
+        &.place {
+          > .metro {
+            width:  20px;
+            height: 20px;
+          }
+        }
+        &.time {
+          @include respond-to(phone) {
+            display: none;
+          }
+        }
+        &.name {
+          > * {
+            font-weight: 700;
+          }
+        }
+      }
+      &:hover {
+        @include transition($transition-in);
+        background: $gray;
+      }
+      &:last-child {
+        > .cell {
+          border: unset;
+        }
+      }
+    }
+  }
+}

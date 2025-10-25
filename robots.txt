@@ -1,0 +1,12 @@
+User-Agent: *
+Disallow: /auth
+Disallow: /dashboard
+Disallow: /*?calltouch_tm=
+Disallow: /*?tpclid=
+Disallow: /*?stat-id=
+Disallow: /*?r0e=
+Disallow: /*?EVe=
+Disallow: /*?name=
+Disallow: /*?from
+Clean-param: vds&exet&wds&utm_source&utm_medium&utm_campaign&fbclid&gclid&yclid&context&device&widget&source&calltouch&ps_appointment /
+Sitemap: https://persona-city.ru/sitemap.xml

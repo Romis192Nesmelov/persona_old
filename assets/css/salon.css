@@ -1,0 +1,78 @@
+/* Colors */
+/* Style */
+#MainScreen > div {
+  position: relative;
+  background: black center no-repeat;
+  background-size: cover;
+  padding: 40px;
+  border-radius: 15px;
+}
+@media only screen and (min-width: 1024px) and (max-width: 1239px) {
+  #MainScreen > div {
+    padding: 36px;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  #MainScreen > div {
+    padding: 31px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  #MainScreen > div {
+    padding: 30px;
+  }
+}
+#MainScreen > div:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: -o-linear-gradient(to right, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+  background-image: -moz-linear-gradient(to right, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+  background-image: -webkit-linear-gradient(to right, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+  opacity: 1;
+  border-radius: inherit;
+}
+#MainScreen > div > div {
+  position: relative;
+}
+#MainScreen h6, #MainScreen p, #MainScreen label {
+  color: white !important;
+}
+#MainScreen .zero {
+  animation: jump 5s ease-out infinite;
+}
+
+@keyframes jump {
+  0% {
+    -webkit-transform: translateY(0);
+  }
+  90% {
+    -webkit-transform: translateY(0);
+  }
+  95% {
+    -webkit-transform: translateY(-10px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+@-webkit-keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  95% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/*# sourceMappingURL=salon.css.map */

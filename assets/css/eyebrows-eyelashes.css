@@ -1,0 +1,100 @@
+#MainScreen > div {
+  background-color: #f0ece2
+}
+
+#MainScreen h1, #MainScreen p.big {
+  color: #fff
+}
+
+a.btn, input[type=submit] {
+  color: #fff;
+  background-image: -o-linear-gradient(to right, #493328 0%, #bd8679 51%, #493328 100%);
+  background-image: -moz-linear-gradient(to right, #493328 0%, #bd8679 51%, #493328 100%);
+  background-image: -webkit-linear-gradient(to right, #493328 0%, #bd8679 51%, #493328 100%);
+  background-image: linear-gradient(to right, #493328 0, #bd8679 51%, #493328 100%)
+}
+
+.call__links, .instagram__links, .menu__links, header #Bar {
+  background: #493328
+}
+
+#Styles .question {
+  border-color: #493328
+}
+
+#Styles .item > h4 {
+  color: #fff
+}
+
+#Principles {
+  background: #f3f3f3
+}
+
+#MainScreen > div {
+  background-color: #f0ece2
+}
+
+#MainScreen > div > .img-ms {
+  right: 0;
+  width: 50%
+}
+
+#MainScreen h1, #MainScreen p.big {
+  color: #576e8d
+}
+
+a.btn, input[type=submit] {
+  color: #fff;
+  background-image: -o-linear-gradient(to right, #576e8d 0%, #c1cede 51%, #576e8d 100%);
+  background-image: -moz-linear-gradient(to right, #576e8d 0%, #c1cede 51%, #576e8d 100%);
+  background-image: -webkit-linear-gradient(to right, #576e8d 0%, #c1cede 51%, #576e8d 100%);
+  background-image: linear-gradient(to right, #576e8d 0, #c1cede 51%, #576e8d 100%)
+}
+
+.call__links, .instagram__links, .menu__links, header #Bar {
+  background: #576e8d
+}
+
+#Styles .question {
+  border-color: #576e8d
+}
+
+#Styles .item > h4 {
+  color: #fff
+}
+
+#Principles {
+  background: #f3f4fc
+}
+
+#MainScreen > div {
+  background-color: #f0ece2
+}
+
+#MainScreen h1, #MainScreen p.big, #Styles .item > h4 {
+  color: #fff
+}
+
+a.btn, input[type=submit] {
+  color: #fff;
+  background-image: -o-linear-gradient(to right, #926f72 0%, #aa5159 51%, #926f72 100%);
+  background-image: -moz-linear-gradient(to right, #926f72 0%, #aa5159 51%, #926f72 100%);
+  background-image: -webkit-linear-gradient(to right, #926f72 0%, #aa5159 51%, #926f72 100%);
+  background-image: linear-gradient(to right, #926f72 0, #aa5159 51%, #926f72 100%)
+}
+
+.call__links, .instagram__links, .menu__links, header #Bar {
+  background: #926f72
+}
+
+#Styles .question {
+  border-color: #926f72
+}
+
+#Principles {
+  background: #fdf0f1
+}
+
+#MainScreen form.lead-form p.lead-form__policy {
+  color: #000000!important;
+}

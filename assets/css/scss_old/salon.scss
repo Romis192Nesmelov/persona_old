@@ -1,0 +1,52 @@
+@import "vars";
+@import "mixins";
+#MainScreen {
+  > div {
+    position:        relative;
+    background:      $black center no-repeat;
+    background-size: cover;
+    padding:         $size-medium;
+    border-radius:   $radius;
+    @include respond-to(mdpi) {
+      padding: $size-mdpi-medium;
+    }
+    @include respond-to(tablet) {
+      padding: $size-tab-medium;
+    }
+    @include respond-to(phone) {
+      padding: $size-mob-medium;
+    }
+    &:before {
+      content:       '';
+      position:      absolute;
+      top:           0;
+      right:         0;
+      bottom:        0;
+      left:          0;
+      @include background-gradient(to right, rgba(0, 0, 0, 0.8) 50%, rgba(0, 0, 0, 0) 100%);
+      opacity:       1;
+      border-radius: inherit;
+    }
+    > div {
+      position: relative;
+    }
+  }
+  h6, p, label {
+    color: $white !important;
+  }
+  .zero {
+    animation: jump 5s ease-out infinite;
+  }
+}
+@keyframes jump {
+  0% { -webkit-transform: translateY(0); }
+  90% { -webkit-transform: translateY(0); }
+  95% { -webkit-transform: translateY(-10px); }
+  100% { -webkit-transform: translateY(0); }
+}
+@-webkit-keyframes jump {
+  0% { transform: translateY(0); }
+  90% { transform: translateY(0); }
+  95% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}

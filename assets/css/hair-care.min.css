@@ -1,0 +1,31 @@
+#MainScreen h1 {
+    color: #ffba00
+}
+
+#MainScreen .bot-mrgn-med {
+    color: #ffffff!important;
+}
+
+#MainScreen .row.mobile-row p {
+    color: #ffffff!important;
+}
+
+#MainScreen .btn,
+#MainScreen form.lead-form p.lead-form__policy {
+    color: #000000!important;
+}
+
+#Styles .question {
+    border-color: #ffba00
+}
+
+a.btn, input[type=submit] {
+    background-image: -o-linear-gradient(to right, #ffd200 0%, #ffba00 51%, #ffd200 100%);
+    background-image: -moz-linear-gradient(to right, #ffd200 0%, #ffba00 51%, #ffd200 100%);
+    background-image: -webkit-linear-gradient(to right, #ffd200 0%, #ffba00 51%, #ffd200 100%);
+    background-image: linear-gradient(to right, #ffd200 0, #ffba00 51%, #ffd200 100%)
+}
+
+#Styles .item > h4 {
+    color: #fff
+}

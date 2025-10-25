@@ -1,0 +1,51 @@
+/* Colors */
+$black: black;
+$black-light: #858b8f;
+$gray: #fafafa;
+$gray-dark: #dddddd;
+$white: white;
+$primary: black;
+$secondary: black;
+$gradient: to right, #ffd200 0%, #ffba00 51%, #ffd200 100%;
+$font-family: Gotham Pro;
+/* Style */
+$green: rgb(145, 220, 90);
+$red: rgb(216, 0, 39);
+$width: 1170px;
+$width-responsive: 94%;
+$mid: 6%;
+$font-family: Gotham Pro;
+$radius: 15px;
+$size-ultra: 14px;
+$size-small: 25px;
+$size-medium: 40px;
+$size-big: 60px;
+$size-huge: 120px;
+$size-button: 40px;
+$box-shadow: 5px 7px 79px -31px rgba($black, 0.75);
+$bg-gradient: to right, #ffd200 0%, #ffba00 51%, #ffd200 100%;
+$transition-out: all .15s ease;
+$transition-in: all .3s ease;
+// Responsive
+$break-laptop: 1240px;
+$break-tablet: 1024px;
+$break-phone: 768px;
+$break-phone-s: 550px;
+//Mdpi
+$size-mdpi-ultra: 12px;
+$size-mdpi-small: 21px;
+$size-mdpi-medium: 36px;
+$size-mdpi-big: 55px;
+$size-mdpi-huge: 100px;
+//Tablet
+$size-tab-ultra: 10px;
+$size-tab-small: 17px;
+$size-tab-medium: 31px;
+$size-tab-big: 45px;
+$size-tab-huge: 80px;
+//Phone
+$size-mob-ultra: 10px;
+$size-mob-small: 16px;
+$size-mob-medium: 30px;
+$size-mob-big: 45px;
+$size-mob-huge: 75px;

@@ -1,0 +1,44 @@
+@import "vars";
+@import "mixins";
+$black: #161616;
+$gray: #f0ece2;
+$primary: #6E3D3D;
+$secondary: rgb(240, 200, 199);
+$gradient: to right, $primary 0%, $secondary 51%, $primary 100%;
+#MainScreen {
+  > div {
+    background-color: $gray;
+    > .img-ms {
+      right: 0;
+      width: 50%;
+    }
+  }
+  h1 {
+    color: $primary;
+  }
+  p.big {
+    color: $primary;
+  }
+}
+a.btn, input[type="submit"] {
+  color: $white;
+  @include background-gradient($gradient);
+}
+header {
+  #Bar {
+    background: $primary;
+  }
+}
+#Styles {
+  .question {
+    border-color: $primary;
+  }
+  .item {
+    > h3 {
+      color: $white;
+    }
+  }
+}
+#Principles {
+  background: #FEC9C9;
+}

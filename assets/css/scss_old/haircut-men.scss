@@ -1,0 +1,19 @@
+@import "vars";
+@import "mixins";
+$black: #161616;
+$primary: #ffd200;
+$secondary: #ffba00;
+$gradient: to right, $primary 0%, $secondary 51%, $primary 100%;
+#MainScreen {
+  h1 {
+    color: $secondary;
+  }
+}
+#Styles {
+  .question {
+    border-color: $secondary;
+  }
+}
+a.btn, input[type="submit"] {
+  @include background-gradient($gradient);
+}

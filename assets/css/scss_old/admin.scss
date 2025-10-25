@@ -1,0 +1,169 @@
+@import "vars";
+@import "mixins";
+h2 {
+  font-size: 1.6rem;
+}
+a.btn, input[type="submit"] {
+  padding:   $size-ultra $size-ultra;
+  font-size: 0.95rem;
+}
+section > div, header #Header > div, header #Bar > div { width: 960px; }
+header {
+  position: relative;
+  #Header {
+    background: $gray;
+  }
+}
+section {
+  padding: $size-small 0 !important;
+}
+form {
+  .input-group {
+    > label {
+      font-size: 1rem;
+    }
+  }
+}
+.progress-block {
+  width:      100%;
+  text-align: center;
+  > p {
+    font-size:   1.2rem;
+    font-weight: 700;
+  }
+  > .progress {
+    @include background-gradient($bg-gradient);
+    width:    75%;
+    height:   25px;
+    margin:   $size-ultra auto;
+    overflow: hidden;
+    position: relative;
+    border:   1px solid $black;
+    > .bar {
+      width:      100%;
+      height:     25px;
+      background: $gray-dark;
+      left:       0;
+      position:   absolute;
+      top:        0;
+    }
+  }
+}
+#Notifications {
+  visibility:      visible;
+  position:        fixed;
+  @include flex-col;
+  justify-content: flex-end;
+  align-items:     flex-end;
+  bottom:          20px;
+  right:           20px;
+  width:           25vw;
+  height:          50vh;
+  z-index:         2;
+  @include transition($transition-out);
+  > .item {
+    padding:       $size-ultra;
+    max-width:     350px;
+    display:       block;
+    background:    rgba($black, .75);
+    color:         $white;
+    text-align:    center;
+    margin-bottom: $size-ultra;
+  }
+}
+#Selector {
+  h2 {
+    font-weight: 700;
+  }
+  .grd {
+    $service-small-grid: (
+                             cols: repeat(3, 1fr),
+                             row-gap: $size-ultra,
+                             col-gap: $size-ultra
+                         );
+    @include grid($service-small-grid);
+    padding: $size-ultra;
+    &.editing {
+      > .item {
+        box-shadow: $box-shadow;
+        &.unsortable {
+          box-shadow: unset;
+        }
+      }
+    }
+    > .item {
+      @include flex-row;
+      align-items: center;
+      padding:     $size-ultra $size-small;
+      > svg, > img {
+        border-radius: 50%;
+        width:         95px;
+        height:        95px;
+        margin-right:  $size-ultra;
+      }
+      > p {
+        font-size: 1.2rem;
+        color:     $black-light;
+      }
+      &.big {
+        @include flex-col;
+        align-items:     center;
+        justify-content: center;
+        padding:         $size-ultra $size-small;
+        > img {
+          width:         100%;
+          height:        auto;
+          border-radius: unset;
+          margin-right:  0;
+          margin-bottom: $size-ultra;
+        }
+      }
+      &:hover {
+        background: $gray;
+      }
+    }
+  }
+}
+#MediaUpload {
+  .img-uploader {
+    .title {
+      font-size:     1.2rem;
+      line-height:   120%;
+      font-weight:   600;
+      margin-bottom: $size-ultra;
+    }
+    .file {
+      position:   relative;
+      width:      40%;
+      min-height: 250px;
+      .progress-block {
+        position:        absolute;
+        top:             0;
+        bottom:          0;
+        display:         flex;
+        flex-direction:  column;
+        align-items:     center;
+        justify-content: center;
+        background:      $gray;
+        left:            0;
+        right:           0;
+        cursor:          not-allowed;
+      }
+    }
+    .img {
+      @include flex-col;
+      align-items:     center;
+      justify-content: center;
+      border:          1px solid $gray-dark;
+      background:      $gray;
+      width:           60%;
+      max-height:      400px;
+      > img {
+        max-height: 100%;
+        padding:    $size-small;
+        display:    block;
+        margin:     0 auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+#MainScreen > div {
+    background-color: #f0ece2
+}
+
+#MainScreen > div > .img-ms {
+    right: 0;
+    width: 50%
+}
+
+#MainScreen h1, #MainScreen p.big {
+    color: #6e3d3d
+}
+
+a.btn, input[type=submit] {
+    color: #fff;
+    background-image: -o-linear-gradient(to right, #6e3d3d 0%, #f0c8c7 51%, #6e3d3d 100%);
+    background-image: -moz-linear-gradient(to right, #6e3d3d 0%, #f0c8c7 51%, #6e3d3d 100%);
+    background-image: -webkit-linear-gradient(to right, #6e3d3d 0%, #f0c8c7 51%, #6e3d3d 100%);
+    background-image: linear-gradient(to right, #6e3d3d 0, #f0c8c7 51%, #6e3d3d 100%)
+}
+
+.call__links, .instagram__links, .menu__links, header #Bar {
+    background: #6e3d3d
+}
+
+#Styles .question {
+    border-color: #6e3d3d
+}
+
+#Styles .item > h4 {
+    color: #fff
+}
+
+#Principles {
+    background: #fec9c9
+}
+
+#MainScreen form.lead-form p.lead-form__policy {
+    color: #000000!important;
+}

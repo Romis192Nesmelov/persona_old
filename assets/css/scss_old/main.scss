@@ -1,0 +1,53 @@
+@import "vars";
+@import "mixins";
+#MainScreen {
+  > div {
+    background:      url(../../media/general/default/bg_ms.jpg) $black center no-repeat;
+    background-size: cover;
+    padding-top:     $size-huge;
+    border-radius:   $radius;
+    @include respond-to(mdpi) {
+      padding-top: $size-mdpi-huge;
+    }
+    @include respond-to(tablet) {
+      padding-top: $size-tab-huge;
+    }
+  }
+  .logo {
+    width:   55%;
+    margin:  0 auto;
+    display: block;
+  }
+  h3 {
+    display: inline-block;
+    padding: $size-ultra/2 $size-medium;
+    color:   $white;
+    @include respond-to(mdpi) {
+      padding: $size-mdpi-ultra/2 $size-mdpi-medium;
+    }
+    @include respond-to(tablet) {
+      padding: $size-tab-ultra/2 $size-tab-medium;
+    }
+  }
+  p {
+    color: $white;
+  }
+  .bg-gradient {
+    color: $black;
+  }
+  .arrow-down {
+    width:     35px;
+    fill:      $gray-dark;
+    animation: slide 2s ease-out infinite;
+    @keyframes slide {
+      0% { -webkit-transform: translateY(0); }
+      50% { -webkit-transform: translateY(6px); }
+      100% { -webkit-transform: translateY(0); }
+    }
+    @-webkit-keyframes slide {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+      100% { transform: translateY(0); }
+    }
+  }
+}
