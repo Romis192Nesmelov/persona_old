@@ -1,4 +1,4 @@
 /system
-/application/сonfig/database.php
 /.idea
 /index.php
+/application/config/database.php
