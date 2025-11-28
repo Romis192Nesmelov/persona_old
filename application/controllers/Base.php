@@ -938,6 +938,7 @@ class Base extends CI_Controller
         $this->show('_map', ['salons' => $this->salons]);
         $this->show('_footer', $this->getAgreements());
         $this->show('_cookies');
+        $this->show('_promo');
         $this->show('_corona');
         $this->show('_booking', ['active' => $this->getWidget() == 'online']);
         $this->show('_foot');
@@ -959,6 +960,7 @@ class Base extends CI_Controller
             $this->show('_footer', $this->getAgreements());
             $this->show('_cookies');
             $this->show('_booking', ['active' => $this->getWidget() == 'online']);
+            $this->show('_promo');
             $this->show('_corona');
             $this->show('_foot');
         } else {
@@ -981,6 +983,7 @@ class Base extends CI_Controller
             $this->show('_footer', $this->getAgreements());
             $this->show('_cookies');
             $this->show('_booking', ['active' => $this->getWidget() == 'online']);
+            $this->show('_promo');
             $this->show('_corona');
             $this->show('_foot');
         } else {
@@ -992,12 +995,13 @@ class Base extends CI_Controller
     {
         $salon = $this->SalonsModel->getSalon('default');
         $this->show('_head', ['amp_link' => $this->getAmpLink(), 'canonical' => $this->getCanonical(), 'seo' => $this->SeoModel->getSalonSeo($salon), 'assets' => 'main', 'salon' => $salon]);
-        $this->show('_header', ['salons' => $this->salons, 'utm' => $this->getUtm()]);
+        $this->show('_blog-header', ['salon' => $salon, 'salons' => $this->salons, 'utm' => $this->getUtm(), 'hide_online_link' => true]);
 
         $this->show('_franchise');
 
         $this->show('_footer', $this->getAgreements());
         $this->show('_cookies');
+        $this->show('_promo');
         $this->show('_corona');
         $this->show('_booking', ['active' => $this->getWidget() == 'online']);
         $this->show('_foot');
