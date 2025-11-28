@@ -70,7 +70,7 @@
                 <a href="/#About"><span>О нас</span></a>
                 <a href="/blog"><span>Блог</span></a>
                 <a href="/vacancies"><span>Вакансии</span></a>
-<!--                <a href="/franchise"><span>Франшиза</span></a>-->
+                <a href="/franchise"><span>Франшиза</span></a>
             </nav>
         </div>
     </div>

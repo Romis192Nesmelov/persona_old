@@ -991,9 +991,8 @@ class Base extends CI_Controller
     public function franchise()
     {
         $salon = $this->SalonsModel->getSalon('default');
-
-        $this->show('_head', ['canonical' => $this->getCanonical(), 'seo' => $this->SeoModel->getVacanciesSeo(), 'assets' => 'main']);
-        $this->show('_blog-header', ['salon' => $salon, 'salons' => $this->salons, 'utm' => $this->getUtm(), 'hide_online_link' => true]);
+        $this->show('_head', ['amp_link' => $this->getAmpLink(), 'canonical' => $this->getCanonical(), 'seo' => $this->SeoModel->getSalonSeo($salon), 'assets' => 'main', 'salon' => $salon]);
+        $this->show('_header', ['salons' => $this->salons, 'utm' => $this->getUtm()]);
 
         $this->show('_franchise');
 
