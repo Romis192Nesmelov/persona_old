@@ -7,7 +7,7 @@ class Base extends CI_Controller
     private $widget;
     private $salons, $services;
     private $views_path = '';
-    private $project_url = (ENVIRONMENT === 'production') ? 'https://persona-city.ru' : 'http://127.0.0.1:8098/';
+    private $project_url = (ENVIRONMENT === 'production') ? BASE_URL : 'http://127.0.0.1:8098/';
     private $project_name = 'Сеть салонов красоты "ПЕРСОНА"';
     private $amp_path = 'amp/';
 
@@ -925,12 +925,13 @@ class Base extends CI_Controller
 
     public function viewVacanciesList()
     {
+        $salon = $this->SalonsModel->getSalon('default');
         $vacancies = $this->VacancyModel->getVacancies();
         $settings = $this->VacancyModel->getSettings();
         $articles = $this->VacancyArticleModel->getArticles();
 
         $this->show('_head', ['canonical' => $this->getCanonical(), 'seo' => $this->SeoModel->getVacanciesSeo(), 'assets' => 'main']);
-        $this->show('_blog-header', ['salons' => $this->salons, 'utm' => $this->getUtm(), 'hide_online_link' => true]);
+        $this->show('_blog-header', ['salon' => $salon, 'salons' => $this->salons, 'utm' => $this->getUtm(), 'hide_online_link' => true]);
 
         $this->show('_vacancies', ['vacancies' => $vacancies, 'articles' => $articles, 'settings' => $settings]);
 
@@ -985,5 +986,21 @@ class Base extends CI_Controller
         } else {
             $this->show_404();
         }
+    }
+
+    public function franchise()
+    {
+        $salon = $this->SalonsModel->getSalon('default');
+
+        $this->show('_head', ['canonical' => $this->getCanonical(), 'seo' => $this->SeoModel->getVacanciesSeo(), 'assets' => 'main']);
+        $this->show('_blog-header', ['salon' => $salon, 'salons' => $this->salons, 'utm' => $this->getUtm(), 'hide_online_link' => true]);
+
+        $this->show('_franchise');
+
+        $this->show('_footer', $this->getAgreements());
+        $this->show('_cookies');
+        $this->show('_corona');
+        $this->show('_booking', ['active' => $this->getWidget() == 'online']);
+        $this->show('_foot');
     }
 }

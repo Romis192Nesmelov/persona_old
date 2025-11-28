@@ -203,6 +203,7 @@ $route['addVacancyLead'] = 'base/addVacancyLead';
 $route['vacancies'] = 'base/viewVacanciesList';
 $route['vacancies/(:any)'] = 'base/viewVacancy/$1';
 $route['vacancies/blog/(:any)'] = 'base/viewVacancyArticle/$1';
+$route['franchise'] = 'base/franchise';
 $route['blog/page(:any)'] = 'base/blog/$1';
 $route['amp/blog/page(:any)'] = 'base/ampBlog/$1';
 $route['blog/(:any)'] = 'base/article/$1';
